@@ -2,22 +2,39 @@ import {series} from './series.js'
 import {dataseries} from './dataseries.js'
 
 
+let cardText: HTMLElement = document.getElementById("info")!;
+
+
 let seriesTbody: HTMLElement = document.getElementById("series")!;
 const temporadapromedio: HTMLElement = document.getElementById('temporada-promedio')!; // Nodo tbody que tiene el id="courses"
+
+let showEvent:NodeListOf< HTMLElement>;
 
 renderSeriesInTable(dataseries);
 temporadapromedio.innerHTML = `${getPromediotemporadas(dataseries)}`
 
+function load():void{
+  showEvent= document.getElementsByName("click")!;
+  showEvent.forEach(c=> {c.onclick= () =>showSerie(Number( c.id))} ); 
+}
+
 
 function renderSeriesInTable(series: series[]): void {
+  let tbodySerie = document.createElement("");
   series.forEach(c => {
-    let trElement = document.createElement("tr");
-    trElement.innerHTML = `<td>${c.numero}</td>
-                           <td>${c.nombre}</td>
-                           <td>${c.canal}</td>
-                           <td>${c.temporadas}</td>`;
-    seriesTbody.appendChild(trElement);
+    
+    tbodySerie.innerHTML +=  
+    `<tr name="click" id=${c.numero}>
+     <td>${c.numero}</td>
+     <td><a href="${c.url}"> ${c.nombre}</a></td> 
+     <td>${c.canal}</td>
+     <td>${c.temporadas}</td>
+     </tr>
+     `;
+    seriesTbody.appendChild(tbodySerie);
+    
   });
+  load();
 }
 
 
@@ -30,4 +47,23 @@ function getPromediotemporadas(series: series[]): number {
   
   return promedio;
 }
+
+function showSerie(number:number):void{
+  console.log("asdibasda");
+  cardText.childNodes.forEach(c=>{cardText.removeChild(c);})
+  
+  let serie= dataseries[number-1];
+  let cardBody = document.createElement("div");
+  cardBody.innerHTML=`
+  <img class="card-img-top" src=${serie.imagen} alt="Card image">
+  <div class="card-body">
+      <h4 class="card-title">${serie.nombre}</h4>
+      <p class="card-text">${serie.resenia}</p>
+      <a href="${serie.url}" >${serie.url}</a>
+  </div>    
+  ` ;
+  cardText.appendChild(cardBody);
+}
+
+
 

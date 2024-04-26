@@ -11,36 +11,45 @@
     <body>
         <div class="container">
             <div class="row">
-                 <table class = "table">
-            <thead class="thead-dark">
-            <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Channel</th>
-                <th>Seasons</th>
-            </tr>
-           
-        </thead>
-        <tbody id = "series">
+                <div class="col-sm-7">
+                    <table class = "table">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Channel</th>
+                            <th>Seasons</th>
+                        </tr>
+                       </thead>
+                    <tbody id = "series">
+                        
+                    </tbody>
+                    </table>
+                    
             
-        </tbody>
-        </table>
+                </div>
+                <div class="col-sm-5">
+                    <div class="card" style="width:400px" id = "info" >
+        
+                    </div>
+                </div>
 
-       </div>
-      <div class="row">
-        <div class="row">
-            <table class = "table">
-       <thead class="thead-dark">
-       <tr>
-           <th>Promedio temporadas</th>
+ 
+            </div>
+            <div class="row">
+                <table class = "table">
+               <thead class="thead-dark">
+                 <tr>
+               <th>Promedio temporadas</th>
+               
+             </tr>
+          
+             </thead>
+              <tbody id = "temporada-promedio">
            
-       </tr>
-      
-   </thead>
-   <tbody id = "temporada-promedio">
-       
-   </tbody>
-   </table>
+              </tbody>
+              </table>
+            </div>
         
   </div>
        <script type="module" src="./scripts/series.js" ></script>
