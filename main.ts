@@ -20,7 +20,7 @@ function load():void{
 
 
 function renderSeriesInTable(series: series[]): void {
-  let tbodySerie = document.createElement("");
+  let tbodySerie = document.createElement("tbody");
   series.forEach(c => {
     
     tbodySerie.innerHTML +=  
