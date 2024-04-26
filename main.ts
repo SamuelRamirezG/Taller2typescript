@@ -67,3 +67,4 @@ function showSerie(number:number):void{
 
 
 
+
