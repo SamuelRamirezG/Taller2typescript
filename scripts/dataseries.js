@@ -1,6 +1,13 @@
-import { series } from './series.js';
-export var dataseries = [
-    new series(1, "Avatar la leyenda de aang", "nickelodeon", 3),
-    new series(2, "Rigo", "RCN", 3),
-    new series(3, "Breaking bad", "ABC", 7)
-];
+var series = /** @class */ (function () {
+    function series(numero, nombre, canal, temporadas, resenia, imagen, url) {
+        this.numero = numero;
+        this.nombre = nombre;
+        this.canal = canal;
+        this.temporadas = temporadas;
+        this.resenia = resenia;
+        this.imagen = imagen;
+        this.url = url;
+    }
+    return series;
+}());
+export { series };
